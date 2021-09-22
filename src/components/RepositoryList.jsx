@@ -4,12 +4,6 @@ import { RepositoryItem } from './RepositoryItem';
 
 import '../styles/repositories.scss';
 
-const repositoryProps = {
-  name: 'unform',
-  description: 'Forms in React',
-  link: 'https://github.com/',
-};
-
 export function RepositoryList() {
   const [repositories, setRepositories] = useState([]);
 
@@ -24,10 +18,11 @@ export function RepositoryList() {
       <h1>Lista de repositórios</h1>
 
       <ul>
-        <RepositoryItem repository={repositoryProps} />
-        <RepositoryItem repository={repositoryProps} />
-        <RepositoryItem repository={repositoryProps} />
-        <RepositoryItem repository={repositoryProps} />
+        {repositories.map(repository => {
+          return (
+            <RepositoryItem key={repository.name} repository={repository} />
+          );
+        })}
       </ul>
     </section>
   );
