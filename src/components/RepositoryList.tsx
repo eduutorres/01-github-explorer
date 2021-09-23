@@ -15,7 +15,7 @@ export function RepositoryList() {
 
   useEffect(() => {
     fetch('https://api.github.com/orgs/rocketseat/repos')
-      .then(reponse => reponse.json())
+      .then(response => response.json())
       .then(data => setRepositories(data));
   }, []);
 
